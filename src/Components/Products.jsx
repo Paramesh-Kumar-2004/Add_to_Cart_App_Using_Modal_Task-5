@@ -23,7 +23,7 @@ export const Products = () => {
 
             {items.map((item) => {
                 return (
-                    <div key={item.id}>
+                    <div key={item.id} >
                         <img src={item.image} alt="image" />
                     </div>
                 )
