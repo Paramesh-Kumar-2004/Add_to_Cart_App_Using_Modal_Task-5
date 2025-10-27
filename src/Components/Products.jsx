@@ -25,10 +25,10 @@ export const Products = () => {
 
             {items.map((item) => {
                 return (
-                    <div key={item.id} className='h-auto w-96 bg-amber-400'>
-                        <img src={item.image} alt="img" className=''/>
+                    <div key={item.id} className='flex flex-col justify-around items-center h-auto w-96 bg-sky-300'>
                         <h1 className='p-3 text-center'>{item.title}</h1>
-                        <h1 className='p-3 text-center'>{item.price}</h1>
+                        <img src={item.image} alt="img" className='w-40' />
+                        <h1 className='p-3 text-center'>Price : ${item.price}</h1>
                     </div>
                 )
             })}
