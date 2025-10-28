@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 
-export const Products = ({ count, setCount }) => {
+export const Products = () => {
 
     const [items, setItems] = useState([])
 
@@ -10,14 +10,12 @@ export const Products = ({ count, setCount }) => {
 
     useEffect(() => {
         fetchData()
-        setCount(storedCart.length)
     }, [])
 
     const HandleCart = (id) => {
         if (!storedCart.includes(id)) {
             storedCart.push(id)
             console.log("Cart :", storedCart)
-            setCount(storedCart.length)
             localStorage.setItem("cartItems", JSON.stringify(storedCart))
         }
         else {
