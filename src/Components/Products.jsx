@@ -17,6 +17,7 @@ export const Products = () => {
             storedCart.push(id)
             console.log("Cart :", storedCart)
             localStorage.setItem("cartItems", JSON.stringify(storedCart))
+            window.dispatchEvent(new Event("cartUpdated"));
         }
         else {
             alert("This Products Already Added In The Cart")
