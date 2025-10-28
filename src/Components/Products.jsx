@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 
 export const Products = () => {
@@ -18,9 +19,14 @@ export const Products = () => {
             console.log("Cart :", storedCart)
             localStorage.setItem("cartItems", JSON.stringify(storedCart))
             window.dispatchEvent(new Event("cartUpdated"));
+            toast("Added to cart!", {
+                position: "top-center"
+            });
         }
         else {
-            alert("This Products Already Added In The Cart")
+            toast.error("Product is already added to the cart", {
+                position: "top-center",
+            });
         }
         console.log(storedCart)
     }
