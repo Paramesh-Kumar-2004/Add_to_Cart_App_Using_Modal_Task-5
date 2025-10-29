@@ -11,17 +11,12 @@ export const Products = () => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const storedCart = JSON.parse(localStorage.getItem("cartItems")) || []
-
     useEffect(() => {
         fetchData()
-        window.addEventListener("cartUpdated", fetchData());
-        return () => {
-            window.removeEventListener("cartUpdated", fetchData());
-        };
     }, [])
 
     const HandleCart = (id) => {
+        const storedCart = JSON.parse(localStorage.getItem("cartItems")) || []
         if (!storedCart.includes(id)) {
             storedCart.push(id)
             console.log("Cart :", storedCart)
@@ -51,7 +46,11 @@ export const Products = () => {
     }
 
     if (loading) {
-        return <Loader />
+        return (
+            <div className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
+                <Loader />
+            </div>
+        )
     }
 
     return (

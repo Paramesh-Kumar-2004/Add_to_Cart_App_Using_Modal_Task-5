@@ -2,10 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import GetProducts from '../API/GetProducts'
+import Loader from './Loader'
 
 
 const CartModal = ({ HandleCartModal }) => {
 
+    const [loading, setLoading] = useState(true)
     const [totalAmount, setTotalAmount] = useState(0)
     const [products, setProducts] = useState([])
 
@@ -21,6 +23,7 @@ const CartModal = ({ HandleCartModal }) => {
             const response = await GetProducts()
             console.log(response)
             setProducts(response)
+            setLoading(!loading)
         } catch (error) {
             console.log(error)
         }
@@ -38,6 +41,14 @@ const CartModal = ({ HandleCartModal }) => {
 
     const filteredProducts = products.filter((item) => productId.includes(item.id))
     const Amount = filteredProducts.reduce((acc, item) => acc + item.price, 0)
+
+    if (loading) {
+        return (
+            <div className='h-screen w-full mt-6 p-4 flex-1 bg-gray-300 rounded-md shadow-lg flex flex-col flex-wrap gap-3 overflow-y-scroll [scrollbar-width:none] justify-around items-center'>
+                <Loader />
+            </div>
+        )
+    }
 
     return (
         <div className='h-screen w-full mt-6 p-4 flex-1 bg-gray-300 rounded-md shadow-lg flex flex-col flex-wrap gap-3 overflow-y-scroll [scrollbar-width:none] justify-around items-center'>
