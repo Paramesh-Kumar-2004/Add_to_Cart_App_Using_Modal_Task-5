@@ -37,13 +37,13 @@ const Header = () => {
                 </div>
             )}
 
-            <div className='flex p-3 gap-3 justify-around'>
-                <h1 className='font-bold'>VP</h1>
+            <div className='flex p-2 gap-3 justify-around items-center mb-2'>
+                <h1 className='font-extrabold font-serif text-xl'>VP</h1>
                 <div className='relative hover:cursor-pointer'
                     onClick={HandleCartModal}
                 >
-                    <img src={CartPng} alt="cart" width={52} />
-                    <p className='absolute -top-2 -right-2'>{count}</p>
+                    <img src={CartPng} alt="cart" width={40} />
+                    <p className='absolute -top-2 -right-3 font-extrabold'>{count}</p>
                 </div>
             </div>
         </div>
