@@ -2,8 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import ProductCard from '../Components/ProductCard'
-
 
 
 export const Products = () => {
@@ -58,7 +56,7 @@ export const Products = () => {
                             <img src={item.image} alt="img" className='w-32' />
                             {/* <p className='break-all p-3'>{item.description}</p> */}
                             <h1 className='p-3 text-center'>Price : ${item.price}</h1>
-                            <button className='bg-green-500 p-3 text-black hover:cursor-pointer font-extrabold rounded-xl' onClick={() => HandleCart(item.id)}>Add To Card</button>
+                            <button className='bg-green-500 p-3 text-black hover:cursor-pointer font-extrabold rounded-xl' onClick={() => HandleCart(item.id)}>Add To Cart</button>
                         </div>
                     )
                 })}
