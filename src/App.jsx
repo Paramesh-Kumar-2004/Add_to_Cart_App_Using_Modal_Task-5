@@ -1,6 +1,7 @@
-import { Products } from './Components/Products'
-import Header from './Components/Header'
 import { ToastContainer } from 'react-toastify'
+
+import Header from './Components/Header'
+import { Products } from './Pages/Products'
 
 function App() {
   return (
