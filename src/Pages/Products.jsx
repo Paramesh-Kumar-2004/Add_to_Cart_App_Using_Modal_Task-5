@@ -23,12 +23,14 @@ export const Products = () => {
             localStorage.setItem("cartItems", JSON.stringify(storedCart))
             window.dispatchEvent(new Event("cartUpdated"));
             toast("Added to cart!", {
-                position: "top-center"
+                position: "top-center",
+                autoClose: 1000,
             });
         }
         else {
-            toast.error("Product is already added to the cart", {
+            toast.error("Product Is Already Added To The Cart", {
                 position: "top-center",
+                autoClose: 1000,
             });
         }
         console.log(storedCart)
@@ -58,10 +60,10 @@ export const Products = () => {
 
             {!loading && (
 
-                <div className='flex gap-5 flex-wrap justify-around'>
+                <div className='flex gap-6 flex-wrap justify-around'>
                     {items.map((item) => {
                         return (
-                            <div key={item.id} className='flex flex-col justify-around rounded-md items-center h-auto w-96 bg-sky-300 border-2 border-sky-800 p-3'>
+                            <div key={item.id} className='flex flex-col justify-around rounded-md items-center h-auto w-96 bg-transparent border-2 border-sky-400 p-3 shadow-[0_4px_10px_rgba(0,0,0,0.8)]'>
                                 <h1 className='p-3 text-center'>{item.title}</h1>
                                 <img src={item.image} alt="img" className='w-32' />
                                 {/* <p className='break-all p-3'>{item.description}</p> */}

@@ -34,8 +34,9 @@ const CartModal = ({ HandleCartModal }) => {
         localStorage.setItem("cartItems", JSON.stringify(updatedCart));
         window.dispatchEvent(new Event("cartUpdated"));
 
-        toast.warn(`Removed item with id: ${id}`, {
+        toast.warn(`Removed Item With ID : ${id}`, {
             position: "top-center",
+            autoClose: 1000,
         });
     };
 
@@ -56,7 +57,7 @@ const CartModal = ({ HandleCartModal }) => {
             <div className='w-full flex flex-col justify-around items-center'>
                 <div className='fixed top-5 px-3 py-2 w-full flex justify-between items-center border-b-2 border-red-800 mb-2'>
                     <h1>Total Amount : <b>{Amount}</b></h1>
-                    <button onClick={HandleCartModal} className='p-2 m-2 text-white bg-red-600 rounded-md hover:cursor-pointer'>X</button>
+                    <button onClick={HandleCartModal} className='py-2 px-4 m-2 text-white bg-red-600 rounded-md hover:cursor-pointer'>X</button>
                 </div>
                 <div className='flex gap-5 flex-wrap justify-around'>
                     {filteredProducts.length > 0 ? (

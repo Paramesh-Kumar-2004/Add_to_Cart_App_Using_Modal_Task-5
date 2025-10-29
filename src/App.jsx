@@ -5,7 +5,7 @@ import { Products } from './Pages/Products'
 
 function App() {
   return (
-    <div>
+    <div className='bg-sky-300'>
       <ToastContainer />
       <Header />
       <Products />
