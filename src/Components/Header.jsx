@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import CartPng from "../assets/Cart.png"
 import CartModal from './CartModal';
 
@@ -6,7 +7,7 @@ import CartModal from './CartModal';
 const Header = () => {
 
     const [count, setCount] = useState(0);
-    const [openModal, setOpenModal] = useState(!false)
+    const [openModal, setOpenModal] = useState(false)
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -23,18 +24,23 @@ const Header = () => {
         };
     }, []);
 
+    function HandleCartModal() {
+        setOpenModal(!openModal)
+    }
+
     return (
         <div>
-            {openModal && (
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <CartModal />
-                </div>
 
+            {openModal && (
+                <div className="w-11/12 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <CartModal HandleCartModal={HandleCartModal} />
+                </div>
             )}
+
             <div className='flex p-3 gap-3 justify-around'>
                 <h1 className='font-bold'>VP</h1>
                 <div className='relative hover:cursor-pointer'
-                    onClick={() => setOpenModal(openModal => !openModal)}
+                    onClick={HandleCartModal}
                 >
                     <img src={CartPng} alt="cart" width={52} />
                     <p className='absolute -top-2 -right-2'>{count}</p>
