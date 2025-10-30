@@ -8,6 +8,7 @@ import Loader from './Loader'
 const CartModal = ({ HandleCartModal }) => {
 
     const [loading, setLoading] = useState(true)
+    const [loadingMessage, setLoadingMessage] = useState("Loading...")
     const [totalAmount, setTotalAmount] = useState(0)
     const [products, setProducts] = useState([])
 
@@ -21,9 +22,13 @@ const CartModal = ({ HandleCartModal }) => {
     const fetchData = async () => {
         try {
             const response = await GetProducts()
-            console.log(response)
-            setProducts(response)
-            setLoading(!loading)
+            if (response) {
+                setProducts(response)
+                setLoading(!loading)
+            }
+            else {
+                setLoadingMessage("Network Error...")
+            }
         } catch (error) {
             console.log(error)
         }
@@ -40,8 +45,10 @@ const CartModal = ({ HandleCartModal }) => {
         });
     };
 
-    const filteredProducts = products.filter((item) => productId.includes(item.id))
-    const Amount = filteredProducts.reduce((acc, item) => acc + item.price, 0)
+    if (products) {
+        const filteredProducts = products.filter((item) => productId.includes(item.id))
+        const Amount = filteredProducts.reduce((acc, item) => acc + item.price, 0)
+    }
 
     if (loading) {
         return (
