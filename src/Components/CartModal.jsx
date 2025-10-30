@@ -45,10 +45,10 @@ const CartModal = ({ HandleCartModal }) => {
         });
     };
 
-    if (products) {
-        const filteredProducts = products.filter((item) => productId.includes(item.id))
-        const Amount = filteredProducts.reduce((acc, item) => acc + item.price, 0)
-    }
+
+    const filteredProducts = products.filter((item) => productId.includes(item.id))
+    const Amount = filteredProducts.reduce((acc, item) => acc + item.price, 0)
+
 
     if (loading) {
         return (
@@ -60,17 +60,17 @@ const CartModal = ({ HandleCartModal }) => {
     }
 
     return (
-        <div className='h-screen w-full mt-6 p-4 flex-1 bg-sky-500 rounded-md shadow-lg flex flex-col flex-wrap gap-3 overflow-y-scroll [scrollbar-width:none] justify-around items-center'>
+        <div className='h-screen w-full p-4 flex-1 bg-sky-500 rounded-md shadow-lg flex flex-col flex-wrap gap-3 overflow-y-scroll [scrollbar-width:none] justify-around items-center'>
 
             <div className='w-full flex flex-col justify-around items-center'>
-                <div className='fixed top-5 px-3 py-2 w-full flex justify-between items-center border-b-2 border-red-800 mb-2'>
+                <div className='fixed top-0 px-3 py-2 w-full flex justify-between items-center bg-sky-400 border-4 border-sky-400'>
                     <h1>Total Amount : <b>{Amount}</b></h1>
                     <button onClick={HandleCartModal} className='py-2 px-4 m-2 text-white bg-red-600 rounded-md hover:cursor-pointer'>X</button>
                 </div>
-                <div className='flex gap-5 flex-wrap justify-around'>
+                <div className='flex pt-18 gap-5 flex-wrap justify-around'>
                     {filteredProducts.length > 0 ? (
                         filteredProducts.map((item) => (
-                            <div key={item.id} className="flex flex-col justify-around rounded-md items-center h-auto w-96 bg-sky-300 border-2 border-sky-800 p-3" >
+                            <div key={item.id} className="flex flex-col justify-around rounded-md items-center h-auto w-80 bg-sky-300 border-2 border-sky-800 p-3" >
                                 <h1 className="p-3 text-center">{item.title}</h1>
                                 <img src={item.image} alt="img" className="w-32" />
                                 <h1 className="p-3 text-center">Price : ${item.price}</h1>
