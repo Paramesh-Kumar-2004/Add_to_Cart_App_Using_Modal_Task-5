@@ -10,6 +10,7 @@ export const Products = () => {
 
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
+    const [loadingMessage, setLoadingMessage] = useState("Loading...")
 
     useEffect(() => {
         fetchData()
@@ -39,18 +40,23 @@ export const Products = () => {
     const fetchData = async () => {
         try {
             const response = await GetProducts()
-            console.log(response)
-            setItems(response)
-            setLoading(!loading)
+            if (response) {
+                console.log(response)
+                setItems(response)
+                setLoading(!loading)
+            }
+            else {
+                setLoadingMessage("Network Error...")
+            }
         } catch (error) {
-            console.log(error)
+            console.log("Error :", error.message)
         }
     }
 
     if (loading) {
         return (
             <div className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
-                <Loader />
+                <Loader loadingMessage={loadingMessage} />
             </div>
         )
     }

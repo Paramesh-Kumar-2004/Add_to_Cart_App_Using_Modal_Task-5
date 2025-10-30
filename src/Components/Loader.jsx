@@ -1,10 +1,10 @@
 import { Button, Spinner } from "flowbite-react";
 
-function Loader() {
+function Loader({ loadingMessage }) {
     return (
 
         <section className="py-20 dark:bg-dark">
-            <div className="container">
+            <div className="container flex flex-col justify-center items-center">
                 <div className="flex flex-wrap items-center gap-4">
                     <div>
                         <svg
@@ -34,7 +34,7 @@ function Loader() {
                         </svg>
                     </div>
                 </div>
-                Loading...
+                {loadingMessage}
             </div>
         </section>
 
