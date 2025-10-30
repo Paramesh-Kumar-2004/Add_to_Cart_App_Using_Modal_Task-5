@@ -7,7 +7,7 @@ import CartModal from './CartModal';
 const Header = () => {
 
     const [count, setCount] = useState(0);
-    const [openModal, setOpenModal] = useState(false)
+    const [openModal, setOpenModal] = useState(!false)
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -32,7 +32,8 @@ const Header = () => {
         <div>
 
             {openModal && (
-                <div className="w-11/12 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                // <div className="w-11/12 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                     <CartModal HandleCartModal={HandleCartModal} />
                 </div>
             )}
