@@ -7,7 +7,7 @@ import CartModal from './CartModal';
 const Header = () => {
 
     const [count, setCount] = useState(0);
-    const [openModal, setOpenModal] = useState(false)
+    const [openModal, setOpenModal] = useState(!false)
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
