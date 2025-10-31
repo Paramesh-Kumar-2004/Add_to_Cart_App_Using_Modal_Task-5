@@ -45,10 +45,8 @@ const CartModal = ({ HandleCartModal }) => {
         });
     };
 
-
     const filteredProducts = products.filter((item) => productId.includes(item.id))
-    const Amount = filteredProducts.reduce((acc, item) => acc + item.price, 0).toFixed(3)   
-
+    const Amount = filteredProducts.reduce((acc, item) => acc + item.price, 0).toFixed(3)
 
     if (loading) {
         return (
@@ -86,7 +84,6 @@ const CartModal = ({ HandleCartModal }) => {
                     )}
                 </div>
             </div>
-
 
         </div >
     )
