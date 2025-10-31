@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import CartPng from "../assets/Cart.png"
 import CartModal from './CartModal';
+import Profile from "../../public/VP.jpg"
 
 
 const Header = () => {
 
     const [count, setCount] = useState(0);
-    const [openModal, setOpenModal] = useState(!false)
+    const [openModal, setOpenModal] = useState(false)
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -39,7 +40,12 @@ const Header = () => {
             )}
 
             <div className='fixed w-full flex p-2 px-12 gap-3 justify-between items-center mb-2 rounded-lg bg-sky-600'>
-                <h1 className='font-extrabold font-serif text-xl text-white'>VP</h1>
+                <a href="https://github.com/Paramesh-Kumar-2004" target='b'>
+                    <div className='flex items-center justify-center gap-2 hover:cursor-pointer'>
+                        <img src={Profile} alt="Logo" width={20} className='rounded' />
+                        <h1 className='font-extrabold font-serif text-xl text-white'>VP</h1>
+                    </div>
+                </a>
                 <div className='relative hover:cursor-pointer'
                     onClick={HandleCartModal}
                 >
