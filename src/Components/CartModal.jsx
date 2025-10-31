@@ -53,7 +53,7 @@ const CartModal = ({ HandleCartModal }) => {
     if (loading) {
         return (
             <div className='h-screen w-full p-4 flex-1 bg-sky-600 rounded-md flex overflow-hidden justify-around items-center z-10'>
-                <button onClick={HandleCartModal} className='absolute top-6 right-6  py-2 px-4 text-white bg-red-600 rounded-md hover:cursor-pointer'>X</button>
+                <button onClick={HandleCartModal} className='absolute top-6 right-6  py-2 px-4 text-white bg-pink-800 rounded-md hover:cursor-pointer'>X</button>
                 <Loader loadingMessage={loadingMessage} />
             </div>
         )
@@ -65,7 +65,7 @@ const CartModal = ({ HandleCartModal }) => {
             <div className='w-full flex flex-col justify-around items-center'>
                 <div className='fixed top-0 px-3 py-2 w-full flex justify-between items-center bg-sky-400 border-4 border-sky-400'>
                     <h1>Total Amount : <b>{Amount}</b></h1>
-                    <button onClick={HandleCartModal} className='py-2 px-4 m-2 text-white bg-red-100 rounded-md hover:cursor-pointer'>X</button>
+                    <button onClick={HandleCartModal} className='py-2 px-4 m-2 text-white bg-pink-800 rounded-md hover:cursor-pointer'>X</button>
                 </div>
                 <div className='flex pt-18 gap-5 flex-wrap justify-around'>
                     {filteredProducts.length > 0 ? (
