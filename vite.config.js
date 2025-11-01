@@ -8,6 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/Add_to_Cart_App_Using_Modal_Task-5/',
+  base: '/React_Modal_Task-5/',
 })
 
